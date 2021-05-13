@@ -7,7 +7,7 @@ class HomePageTemp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Iconos'),
+          title: Text('Componentes widgets'),
           backgroundColor: Colors.deepPurple,
         ),
         body: _lista(context)
@@ -48,10 +48,8 @@ List<Widget> _listaItems(List<dynamic> data, BuildContext context) {
         color: Colors.blue,
       ),
       onTap: () {
-        showDialog(
-            context: context,
-            builder: (BuildContext context) =>
-                _buildPopUpDialog(context, opt['texto']));
+        print(opt['ruta']);
+        Navigator.of(context).pushNamed(opt['ruta']);
       },
     );
     opcioness..add(widgetTemp)..add(Divider());
@@ -77,22 +75,3 @@ Widget _buildPopUpDialog(BuildContext context, String opt) {
     ),
   );
 }
-
-// List<Widget> _crearItems(BuildContext context) {
-//   List<Widget> lista = new List<Widget>();
-//   for (String opt in opciones) {
-//     final tempWidget = ListTile(
-//       title: Text(opt),
-//       subtitle: Text('Subtitulo' + opt),
-//       leading: Icon(Icons.account_box),
-//       trailing: Icon(Icons.keyboard_arrow_right_rounded),
-//       onTap: () {
-//         Navigator.push(
-//           context,
-//           MaterialPageRoute(builder: (context)=> Info(opt)));
-//       },
-//     );
-//     lista..add(tempWidget)..add(Divider());
-//   }
-//   return lista;
-// }
